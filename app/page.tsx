@@ -2,6 +2,7 @@ import { Button } from "@/components/Button";
 import { CaseBlock } from "@/components/CaseBlock";
 import { Container } from "@/components/Container";
 import { LightCard } from "@/components/LightCard";
+import { PortraitImage } from "@/components/PortraitImage";
 import { RolesList } from "@/components/RolesList";
 import { TagList } from "@/components/TagList";
 import { capabilities, cases, industries } from "@/lib/data";
@@ -12,38 +13,69 @@ export default function HomePage() {
 
   return (
     <>
-      <section className="relative isolate overflow-hidden">
+      <section className="hero-shell relative isolate overflow-hidden">
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0 -z-10"
           style={{
             background:
-              "radial-gradient(46% 50% at 50% 29.6%, #021c21 0%, #0d0d0d 100%)",
+              "radial-gradient(52% 46% at 32% 30%, rgba(4, 32, 36, 0.9) 0%, rgba(13, 13, 13, 0) 62%), radial-gradient(46% 50% at 50% 29.6%, #021c21 0%, #0d0d0d 100%)",
           }}
         />
-        <Container className="px-6 py-24 sm:px-8 md:px-[72px] md:py-36">
-          <div className="mx-auto flex max-w-[1056px] flex-col items-start gap-12 text-left md:items-center md:text-center">
-            <h1 className="headline display-xl rise max-w-[880px]">
-              <span className="text-[#b3b3b3]">I’m {site.firstName}, </span>
-              <span className="text-white">
-                designing products people trust to use.
-              </span>
-            </h1>
-            <div className="rise rise-delay-1 max-w-2xl font-ui text-[16px] font-medium leading-[1.6] tracking-[-0.1px] text-[#86868b] md:text-[17px]">
-              <p>
-                I enable product teams to make{" "}
-                <span className="text-white">confident</span> decisions and{" "}
-                <span className="text-white">deliver outcomes</span> using
-                design as a strategic lever.
+        <div aria-hidden className="hero-grid" />
+        <Container className="relative px-6 py-20 sm:px-8 md:px-[72px] md:py-28">
+          <div className="grid items-center gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
+            <div className="flex flex-col items-start text-left">
+              <p className="hero-eyebrow rise">
+                <span className="hero-dot" />
+                {site.role} · {site.location}
               </p>
+              <h1 className="headline display-xl rise rise-delay-1 mt-6 max-w-[720px]">
+                <span className="text-[#b3b3b3]">I’m {site.firstName}, </span>
+                <span className="text-white">
+                  designing products people trust to use.
+                </span>
+              </h1>
+              <div className="rise rise-delay-2 mt-6 max-w-xl font-ui text-[16px] font-medium leading-[1.6] tracking-[-0.1px] text-[#86868b] md:text-[17px]">
+                <p>
+                  I enable product teams to make{" "}
+                  <span className="text-white">confident</span> decisions and{" "}
+                  <span className="text-white">deliver outcomes</span> using
+                  design as a strategic lever.
+                </p>
+              </div>
+              <div className="rise rise-delay-3 mt-9 flex flex-wrap items-center gap-3">
+                <Button href={site.socials.linkedin} external>
+                  Let’s Connect
+                </Button>
+                <Button href="/#cases" variant="outline">
+                  View Work
+                </Button>
+              </div>
+              <div className="rise rise-delay-3 mt-12 flex items-center gap-4 font-ui text-[13px] font-medium tracking-[0.06em] text-faint">
+                <span>SUBSCRIPTION</span>
+                <span className="hero-sep" />
+                <span>AI PRODUCTS</span>
+                <span className="hero-sep" />
+                <span>WELLNESS</span>
+              </div>
             </div>
-            <div className="rise rise-delay-2">
-              <Button href={site.socials.linkedin} external>
-                Let’s Connect
-              </Button>
+
+            <div className="rise rise-delay-1 relative">
+              <PortraitImage variant="hero" priority />
+              <div aria-hidden className="hero-glow" />
+              <div className="hero-caption">
+                <p className="font-ui text-[13px] font-medium uppercase tracking-[0.1em] text-faint">
+                  Currently
+                </p>
+                <p className="mt-1 font-ui text-[15px] font-medium text-white">
+                  Open to product design collaborations
+                </p>
+              </div>
             </div>
           </div>
         </Container>
+        <div aria-hidden className="hero-fade" />
       </section>
 
       <section className="py-20 md:py-28">

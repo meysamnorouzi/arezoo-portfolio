@@ -3,6 +3,7 @@ import { Button } from "@/components/Button";
 import { ContactForm } from "@/components/ContactForm";
 import { Container } from "@/components/Container";
 import { PageHero } from "@/components/PageHero";
+import { PortraitImage } from "@/components/PortraitImage";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -38,6 +39,17 @@ export default function ContactPage() {
                 collaborating, discussing new opportunities, or just want to say
                 hi.
               </p>
+              <div className="mt-8 flex items-center gap-4">
+                <PortraitImage variant="avatar" className="shrink-0" />
+                <div>
+                  <p className="font-ui text-[15px] font-medium text-white">
+                    {site.name}
+                  </p>
+                  <p className="mt-1 font-ui text-[14px] text-subtle">
+                    {site.role}
+                  </p>
+                </div>
+              </div>
               <ul className="mt-10 space-y-3 font-ui text-[15px] text-subtle">
                 <li>
                   <a className="hover:text-white" href={`mailto:${site.email}`}>

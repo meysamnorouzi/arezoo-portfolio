@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Button } from "@/components/Button";
 import { Container } from "@/components/Container";
 import { PageHero } from "@/components/PageHero";
+import { PortraitImage } from "@/components/PortraitImage";
 import { cases, courses, education, industries, skills } from "@/lib/data";
 import { site } from "@/lib/site";
 
@@ -92,17 +93,20 @@ export default function ResumePage() {
 
       <section id="background" className="py-20 md:py-28">
         <Container>
-          <div className="grid gap-14 lg:grid-cols-[1.1fr_0.9fr]">
-            <div>
-              <h2 className="headline display-lg text-white">Where I come from.</h2>
-              <p className="mt-6 max-w-xl font-ui text-[16px] font-medium leading-[1.6] text-subtle">
-                Based in Tehran, I trained first as an urban planner — learning to
-                read how people move through systems, and where those systems fail
-                them. That habit still guides my product work: listen, map the
-                friction, then design a path that feels possible.
-              </p>
+          <div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr]">
+            <div className="flex flex-col gap-8">
+              <PortraitImage variant="card" className="max-w-[420px]" />
+              <div>
+                <h2 className="headline display-lg text-white">Where I come from.</h2>
+                <p className="mt-6 max-w-xl font-ui text-[16px] font-medium leading-[1.6] text-subtle">
+                  Based in Tehran, I trained first as an urban planner — learning to
+                  read how people move through systems, and where those systems fail
+                  them. That habit still guides my product work: listen, map the
+                  friction, then design a path that feels possible.
+                </p>
+              </div>
             </div>
-            <div className="grid gap-10">
+            <div className="grid gap-10 self-start lg:pt-24">
               <div>
                 <h3 className="headline text-[22px] text-white">Why I design</h3>
                 <p className="mt-3 font-ui text-[15px] font-medium leading-[1.6] text-subtle">
