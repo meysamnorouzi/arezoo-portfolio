@@ -23,7 +23,7 @@ export function PortraitImage({
     <div className={`portrait-frame portrait-frame--${variant} ${className}`}>
       <div className="portrait-media">
         <Image
-          src="/IMG_4929.JPG"
+          src="/IMG_4929.PNG"
           alt="Arezoo Jafary, Product Designer"
           fill
           priority={priority}
