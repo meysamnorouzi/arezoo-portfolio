@@ -4,27 +4,21 @@ export function PageHero({
   muted,
   emphasis,
   children,
-  align = "center",
 }: {
   muted: string;
   emphasis: string;
   children?: React.ReactNode;
-  align?: "center" | "left";
 }) {
-  const alignCls = align === "center" ? "text-left md:text-center" : "text-left";
-
   return (
     <section className="pt-16 pb-10 md:pt-24 md:pb-14">
       <Container>
-        <div className={`mx-auto max-w-[860px] ${alignCls}`}>
-          <h1 className={`headline display-xl rise ${alignCls}`}>
+        <div className="mx-auto max-w-[860px] text-left md:text-center">
+          <h1 className="headline display-xl rise">
             <span className="text-muted">{muted} </span>
             <span className="text-white">{emphasis}</span>
           </h1>
           {children ? (
-            <div className={`rise rise-delay-1 mt-8 ${align === "center" ? "md:mx-auto" : ""} max-w-2xl`}>
-              {children}
-            </div>
+            <div className="rise rise-delay-1 mt-8 max-w-2xl md:mx-auto">{children}</div>
           ) : null}
         </div>
       </Container>

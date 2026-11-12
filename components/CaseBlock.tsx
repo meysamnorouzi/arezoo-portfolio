@@ -1,15 +1,20 @@
 import Link from "next/link";
+import { ProjectCover } from "@/components/ProjectCover";
 import { TagList } from "@/components/TagList";
 import type { CaseStudy } from "@/lib/data";
 
 export function CaseBlock({ item }: { item: CaseStudy }) {
+  const href = `/work/${item.slug}`;
+
   return (
-    <article className="border-t border-line-dim py-14 md:py-16">
-      <p className="font-ui text-[15px] font-medium tracking-[-0.1px] text-subtle">
-        {item.role}
-      </p>
-      <h3 className="headline display-md mt-4 max-w-3xl text-white">{item.title}</h3>
-      <p className="mt-5 max-w-2xl font-ui text-[16px] font-medium leading-[1.6] tracking-[-0.1px] text-subtle">
+    <article className="border-t border-line-dim py-12 md:py-16">
+      <ProjectCover item={item} href={href} crop />
+      <h3 className="headline display-md mt-8 text-white md:mt-10">
+        <Link href={href} className="transition-opacity hover:opacity-80">
+          {item.title}
+        </Link>
+      </h3>
+      <p className="mt-5 font-ui text-[16px] font-medium leading-[1.6] tracking-[-0.1px] text-subtle">
         {item.summary}
       </p>
       <div className="mt-6">
@@ -17,7 +22,7 @@ export function CaseBlock({ item }: { item: CaseStudy }) {
       </div>
       <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
         <Link
-          href={`/work/${item.slug}`}
+          href={href}
           className="inline-flex font-ui text-[15px] font-medium tracking-[-0.1px] text-white transition-opacity hover:opacity-70"
         >
           View Case Story

@@ -22,6 +22,14 @@ export function Button({
 
   const cls = `inline-flex items-center justify-center rounded-full px-6 py-3 font-ui text-[15px] font-medium tracking-[-0.1px] transition-colors duration-300 ${styles} ${className}`;
 
+  if (/^(mailto|tel):/.test(href)) {
+    return (
+      <a href={href} className={cls}>
+        {children}
+      </a>
+    );
+  }
+
   if (external) {
     return (
       <a href={href} target="_blank" rel="noopener noreferrer" className={cls}>

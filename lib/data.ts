@@ -11,7 +11,8 @@ export type CaseStudy = {
   opportunities: { title: string; body: string }[];
   approach: { title: string; body: string }[];
   outcomes: { title: string; body: string }[];
-  accent: string;
+  /** Screenshot of the shipped design, served from /public/work. */
+  cover: { src: string; width: number; height: number; alt: string };
 };
 
 export const cases: CaseStudy[] = [
@@ -36,12 +37,11 @@ export const cases: CaseStudy[] = [
       "WEB",
       "APP",
     ],
-    prototype:
-      "https://www.figma.com/proto/AiEEnofFfF1uCkvq3wGMed/Coffee-subscription-ui-?node-id=1051-6783&scaling=min-zoom&content-scaling=fixed&page-id=15%3A2&starting-point-node-id=1051%3A6783",
+    prototype: "https://www.figma.com/proto/AiEEnofFfF1uCkvq3wGMed/Coffee-subscription-ui?node-id=1051-6783&scaling=min-zoom&content-scaling=fixed&page-id=15%3A2&starting-point-node-id=1051%3A6783",
     links: [
-      { label: "View in prototype", href: "https://www.figma.com/proto/AiEEnofFfF1uCkvq3wGMed/Coffee-subscription-ui-?node-id=1051-6783&scaling=min-zoom&content-scaling=fixed&page-id=15%3A2&starting-point-node-id=1051%3A6783" },
-      { label: "LinkedIn", href: "https://www.linkedin.com/in/arezoo-jafary" },
-      { label: "Dribbble", href: "https://dribbble.com/arezoo-jafary" },
+      { label: "View in prototype", href: "https://www.figma.com/proto/AiEEnofFfF1uCkvq3wGMed/Coffee-subscription-ui?node-id=1051-6783&scaling=min-zoom&content-scaling=fixed&page-id=15%3A2&starting-point-node-id=1051%3A6783" },
+      { label: "Read on LinkedIn", href: "https://www.linkedin.com/posts/arezoo-jafari-140754299_vivacoffee-coffeelovers-uxdesign-activity-7380546365187149824-jheZ" },
+      { label: "View on Dribbble", href: "https://dribbble.com/shots/26884846-Coffee-Subscription" },
     ],
     opportunities: [
       {
@@ -89,7 +89,7 @@ export const cases: CaseStudy[] = [
         body: "The work covers research, personas, journeys, IA, wireframes, and UI across a 30-page experience.",
       },
     ],
-    accent: "#c4a574",
+    cover: { src: "/work/coffee-subscription.jpg", width: 1456, height: 990, alt: "Viva Cafe coffee subscription landing page — hero with roasting beans and a how-it-works section" },
   },
   {
     slug: "pico-ai",
@@ -111,12 +111,10 @@ export const cases: CaseStudy[] = [
       "PROTOTYPING",
       "WEB",
     ],
-    prototype:
-      "https://www.figma.com/proto/QIxZKaxfjwRyPplANkVZrG/ai?node-id=145-505&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1",
+    prototype: "https://www.figma.com/proto/QIxZKaxfjwRyPplANkVZrG/ai?node-id=145-505&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1",
     links: [
       { label: "View in prototype", href: "https://www.figma.com/proto/QIxZKaxfjwRyPplANkVZrG/ai?node-id=145-505&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1" },
-      { label: "LinkedIn", href: "https://www.linkedin.com/in/arezoo-jafary" },
-      { label: "Dribbble", href: "https://dribbble.com/arezoo-jafary" },
+      { label: "Read on LinkedIn", href: "https://www.linkedin.com/posts/arezoo-jafari-140754299_picoai-aiimages-creativity-activity-7395364734629400576-v7uJ" },
     ],
     opportunities: [
       {
@@ -164,7 +162,7 @@ export const cases: CaseStudy[] = [
         body: "Dark mode is defined as a visual system, not a one-off theme pass.",
       },
     ],
-    accent: "#7aa2ff",
+    cover: { src: "/work/pico-ai.jpg", width: 2400, height: 1325, alt: "Pico AI landing page in dark mode — AI-powered image creator hero with a dashboard preview of generated images" },
   },
   {
     slug: "yogian",
@@ -185,9 +183,11 @@ export const cases: CaseStudy[] = [
       "PRODUCT DELIVERY",
       "WEB",
     ],
+    prototype: "https://www.figma.com/proto/MmKMiZvkerqapTAhT0iQFY/yoga?node-id=320-3883&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1",
     links: [
-      { label: "LinkedIn", href: "https://www.linkedin.com/in/arezoo-jafary" },
-      { label: "Dribbble", href: "https://dribbble.com/arezoo-jafary" },
+      { label: "View in prototype", href: "https://www.figma.com/proto/MmKMiZvkerqapTAhT0iQFY/yoga?node-id=320-3883&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1" },
+      { label: "Read on LinkedIn", href: "https://www.linkedin.com/posts/arezoo-jafari-140754299_%D9%84%D9%86%D8%AF%DB%8C%D9%86%DA%AF-%D9%81%D8%B1%D9%88%D8%B4-%DA%A9%D9%84%D8%A7%D8%B3-%D9%87%D8%A7%DB%8C-%D8%A2%D9%86%D9%84%D8%A7%DB%8C%D9%86-%DB%8C%D9%88%DA%AF%D8%A7-%D8%AF%D8%B1-yogiyan-activity-7390356817199124480-xBdA" },
+      { label: "View on Dribbble", href: "https://dribbble.com/shots/27038996-yoga" },
     ],
     opportunities: [
       {
@@ -235,7 +235,7 @@ export const cases: CaseStudy[] = [
         body: "Onboarding continues the same decision, so the first experience feels intended.",
       },
     ],
-    accent: "#8fbf9f",
+    cover: { src: "/work/yogian.jpg", width: 1504, height: 1047, alt: "Yogian online yoga landing page — hero, course levels, and why-choose-us section" },
   },
 ];
 
@@ -384,101 +384,6 @@ export const playbook = [
       { title: "Reduce Anxiety", body: "Remove the fear of the wrong coffee, the unread screen, the unfit class." },
       { title: "Build Trust", body: "Make the product understandable before it asks for commitment." },
       { title: "Sustain Use", body: "Keep the experience personal after the first success." },
-    ],
-  },
-];
-
-export const partnerSections = [
-  {
-    id: "1",
-    eyebrow: "01",
-    title: "What Changes When I’m Involved.",
-    lead: "My role is to help teams see the user clearly, choose what matters, and move from research to an interface people can trust.",
-    items: [
-      {
-        title: "Shared Direction",
-        body: "Teams align around the real hesitation — not a list of screens — and collaborate from the same map.",
-      },
-      {
-        title: "Real Momentum",
-        body: "Research turns into journeys, IA, and prototypes, so work moves forward with a visible next step.",
-      },
-      {
-        title: "Better Decisions",
-        body: "Interface choices are tied to evidence: usability, journeys, and the anxiety the product must remove.",
-      },
-      {
-        title: "Meaningful Outcomes",
-        body: "The focus shifts from shipping pages to helping someone subscribe, generate, or enroll with confidence.",
-      },
-    ],
-  },
-  {
-    id: "2",
-    eyebrow: "02",
-    title: "How I Work.",
-    lead: "I work where product, research, and interface meet — especially when people hesitate and the problem is still fuzzy.",
-    items: [
-      {
-        title: "Research Before Screens",
-        body: "Personas, empathy maps, and competitive analysis come first, so the UI is answering a named problem.",
-      },
-      {
-        title: "Structure, Then Visual",
-        body: "Sitemaps, journeys, and wireframes lock the path. Visual systems and dark mode come once the path is honest.",
-      },
-      {
-        title: "Prototype To Learn",
-        body: "Interactive flows are how we test taste assessment, prompting, or course choice — not how we decorate a deck.",
-      },
-      {
-        title: "Keep The System Usable",
-        body: "I care about contrast, hierarchy, and consistency, so the product stays readable as it grows.",
-      },
-    ],
-  },
-  {
-    id: "3",
-    eyebrow: "03",
-    title: "Where I Create The Most Value.",
-    lead: "I’m most useful when the product is asking people to trust it with a preference, a prompt, or a personal choice.",
-    items: [
-      {
-        title: "Ambiguous First Visits",
-        body: "Landings and onboarding where people do not yet know if the product is for them.",
-      },
-      {
-        title: "Complex Made Quiet",
-        body: "AI, subscriptions, and multi-level offerings that need to feel simple without hiding the choice.",
-      },
-      {
-        title: "Visual Systems Under Stress",
-        body: "Dark mode, dashboards, and product UI that must stay accessible and clear.",
-      },
-      {
-        title: "Strategy To Execution",
-        body: "When the insight exists, but it has not become a flow someone can complete.",
-      },
-    ],
-  },
-  {
-    id: "4",
-    eyebrow: "04",
-    title: "When I’m The Right Fit.",
-    lead: "I’m typically brought in when a team needs to understand users and turn that understanding into a product people can finish.",
-    items: [
-      {
-        title: "Unclear Direction",
-        body: "The problem is felt, but the experience is not yet named.",
-      },
-      {
-        title: "Low Trust",
-        body: "People bounce because they cannot tell what they will get.",
-      },
-      {
-        title: "A System To Build",
-        body: "The work needs research, IA, UI, and a prototype — not only a visual pass.",
-      },
     ],
   },
 ];

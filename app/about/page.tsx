@@ -6,14 +6,16 @@ import { PageHero } from "@/components/PageHero";
 import { PortraitImage } from "@/components/PortraitImage";
 import { cases, courses, education, industries, skills } from "@/lib/data";
 import { site } from "@/lib/site";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Resume",
+export const metadata: Metadata = pageMetadata({
+  title: "About Me",
   description:
     "Product designer with a foundation in urban planning — research, structure, and interface for products people can trust.",
-};
+  path: "/about/",
+});
 
-export default function ResumePage() {
+export default function AboutPage() {
   return (
     <>
       <PageHero
@@ -30,7 +32,7 @@ export default function ResumePage() {
         </div>
       </PageHero>
 
-      <section id="how" className="py-20 md:py-28">
+      <section id="how" className="py-16 md:py-28">
         <Container>
           <h2 className="headline display-lg mx-auto max-w-3xl text-left text-white md:text-center">
             Here’s <span className="italic text-muted">how</span> I help you.
@@ -52,10 +54,10 @@ export default function ResumePage() {
         </Container>
       </section>
 
-      <section id="industries" className="py-20 md:py-28">
+      <section id="industries" className="py-16 md:py-28">
         <Container>
           <h2 className="headline display-lg max-w-3xl text-white">
-            I simplify complex systems into intuitive product experiences.
+            Complex products, made simple.
           </h2>
           <div className="mt-16 grid gap-x-12 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
             {industries.map((item) => (
@@ -72,7 +74,7 @@ export default function ResumePage() {
         </Container>
       </section>
 
-      <section id="workexperience" className="py-20 md:py-28">
+      <section id="workexperience" className="py-16 md:py-28">
         <Container>
           <h2 className="headline display-lg max-w-3xl text-white">
             Selected product work.
@@ -91,7 +93,7 @@ export default function ResumePage() {
         </Container>
       </section>
 
-      <section id="background" className="py-20 md:py-28">
+      <section id="background" className="py-16 md:py-28">
         <Container>
           <div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr]">
             <div className="flex flex-col gap-8">
@@ -108,7 +110,7 @@ export default function ResumePage() {
             </div>
             <div className="grid gap-10 self-start lg:pt-24">
               <div>
-                <h3 className="headline text-[22px] text-white">Why I design</h3>
+                <h3 className="subhead text-[22px] text-white">Why I design</h3>
                 <p className="mt-3 font-ui text-[15px] font-medium leading-[1.6] text-subtle">
                   I’m interested in turning vision into outcomes by aligning
                   interface decisions with user needs. Design is not only making
@@ -116,7 +118,7 @@ export default function ResumePage() {
                 </p>
               </div>
               <div>
-                <h3 className="headline text-[22px] text-white">What I bring</h3>
+                <h3 className="subhead text-[22px] text-white">What I bring</h3>
                 <p className="mt-3 font-ui text-[15px] font-medium leading-[1.6] text-subtle">
                   Research, information architecture, journey mapping, wireframes,
                   visual systems, and usability testing. I work hands-on from
@@ -128,7 +130,7 @@ export default function ResumePage() {
         </Container>
       </section>
 
-      <section id="contact-details" className="py-20 md:py-28">
+      <section id="contact-details" className="py-16 md:py-28">
         <Container>
           <h2 className="headline display-lg text-white">Contact and socials.</h2>
           <div className="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
@@ -142,7 +144,7 @@ export default function ResumePage() {
         </Container>
       </section>
 
-      <section id="education" className="py-20 md:py-28">
+      <section id="education" className="py-16 md:py-28">
         <Container>
           <h2 className="headline display-lg text-white">
             Education, courses, and language.
@@ -172,7 +174,7 @@ export default function ResumePage() {
               </div>
             </div>
             <div>
-              <h3 className="font-ui text-[16px] font-medium text-white">
+              <h3 className="mb-6 font-ui text-[16px] font-medium text-white lg:mb-0">
                 Courses
               </h3>
               {courses.map((item) => (
@@ -202,7 +204,7 @@ export default function ResumePage() {
 function Help({ title, body }: { title: string; body: string }) {
   return (
     <div>
-      <h3 className="headline text-[22px] text-white">{title}</h3>
+      <h3 className="subhead text-[22px] text-white">{title}</h3>
       <p className="mt-4 font-ui text-[16px] font-medium leading-[1.6] text-subtle">
         {body}
       </p>
@@ -223,7 +225,7 @@ function Role({
 }) {
   return (
     <div className="grid gap-2 border-t border-line-dim py-8 md:grid-cols-[1fr_1fr_auto] md:items-baseline">
-      <Link href={href} className="headline text-[22px] text-white md:text-[24px]">
+      <Link href={href} className="subhead text-[22px] text-white md:text-[24px]">
         {org}
       </Link>
       <span className="font-ui text-[15px] font-medium text-subtle">{role}</span>

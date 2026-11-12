@@ -23,11 +23,11 @@ export default function HomePage() {
           }}
         />
         <div aria-hidden className="hero-grid" />
-        <Container className="relative px-6 py-20 sm:px-8 md:px-[72px] md:py-28">
-          <div className="grid items-center gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
-            <div className="flex flex-col items-start text-left">
+        <Container className="relative">
+          <div className="grid items-end gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:gap-10">
+            <div className="flex flex-col items-start pt-16 text-left md:pt-24 lg:self-center lg:py-28">
               <p className="hero-eyebrow rise">
-                <span className="hero-dot" />
+                <span className="status-dot" />
                 {site.role} · {site.location}
               </p>
               <h1 className="headline display-xl rise rise-delay-1 mt-6 max-w-[720px]">
@@ -45,14 +45,12 @@ export default function HomePage() {
                 </p>
               </div>
               <div className="rise rise-delay-3 mt-9 flex flex-wrap items-center gap-3">
-                <Button href={site.socials.linkedin} external>
-                  Let’s Connect
-                </Button>
-                <Button href="/#cases" variant="outline">
+                <Button href="/contact">Let’s Connect</Button>
+                <Button href="/projects" variant="outline">
                   View Work
                 </Button>
               </div>
-              <div className="rise rise-delay-3 mt-12 flex items-center gap-4 font-ui text-[13px] font-medium tracking-[0.06em] text-faint">
+              <div className="rise rise-delay-3 mt-12 flex flex-wrap items-center gap-x-3 gap-y-2 whitespace-nowrap font-ui text-[12px] font-medium tracking-[0.06em] text-faint sm:gap-x-4 sm:text-[13px]">
                 <span>SUBSCRIPTION</span>
                 <span className="hero-sep" />
                 <span>AI PRODUCTS</span>
@@ -61,30 +59,17 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="rise rise-delay-1 relative">
-              <PortraitImage variant="hero" priority />
-              <div aria-hidden className="hero-glow" />
-              <div className="hero-caption">
-                <p className="font-ui text-[13px] font-medium uppercase tracking-[0.1em] text-faint">
-                  Currently
-                </p>
-                <p className="mt-1 font-ui text-[15px] font-medium text-white">
-                  Open to product design collaborations
-                </p>
-              </div>
-            </div>
+            <PortraitImage variant="hero" priority className="rise rise-delay-1" />
           </div>
         </Container>
         <div aria-hidden className="hero-fade" />
       </section>
 
-      <section className="py-20 md:py-28">
+      <section className="py-16 md:py-28">
         <Container>
           <h2 className="headline display-lg mx-auto max-w-3xl text-left md:text-center">
-            <span className="text-[#6e6e73]">I’ll help you to </span>
-            <span className="text-white">create clarity on what matters </span>
-            <span className="text-[#6e6e73]">and the </span>
-            <span className="text-white">confidence to act on it.</span>
+            <span className="text-white">Clear priorities.</span>
+            <span className="text-[#6e6e73]"> Confident decisions.</span>
           </h2>
           <div className="mt-14 grid gap-4 md:grid-cols-3">
             {capabilities.map((item) => (
@@ -94,7 +79,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="py-20 md:py-28">
+      <section className="py-16 md:py-28">
         <Container>
           <h2 className="headline display-lg max-w-3xl">
             <span className="text-[#86868b]">I’ve contributed as a </span>
@@ -108,10 +93,10 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="py-20 md:py-28">
+      <section className="py-16 md:py-28">
         <Container>
           <h2 className="headline display-lg mx-auto max-w-3xl text-left text-white md:text-center">
-            I simplify complex systems into intuitive product experiences.
+            Complex products, made simple.
           </h2>
           <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {industries.map((item) => (
@@ -121,7 +106,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="py-20 md:py-28">
+      <section className="py-16 md:py-28">
         <Container>
           <div className="mx-auto max-w-3xl">
             <h2 className="headline display-lg text-white">
@@ -141,14 +126,9 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section id="cases" className="py-20 md:py-28">
+      <section id="cases" className="py-16 md:py-28">
         <Container>
-          <h2 className="headline display-lg max-w-3xl">
-            <span className="text-white">Selected work</span>
-            <span className="text-[#6e6e73]"> that makes </span>
-            <span className="text-white">lives better</span>
-            <span className="text-[#6e6e73]"> and products clearer.</span>
-          </h2>
+          <h2 className="headline display-lg text-white">Projects</h2>
           <div className="mt-10">
             {cases.map((item) => (
               <CaseBlock key={item.slug} item={item} />

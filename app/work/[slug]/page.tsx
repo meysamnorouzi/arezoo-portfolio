@@ -3,9 +3,11 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/Button";
 import { Container } from "@/components/Container";
-import { ProjectFrame } from "@/components/ProjectFrame";
+import { ProjectCover } from "@/components/ProjectCover";
 import { TagList } from "@/components/TagList";
 import { cases } from "@/lib/data";
+import { caseJsonLd, JsonLd } from "@/lib/seo";
+import { site } from "@/lib/site";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -19,9 +21,27 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const item = cases.find((entry) => entry.slug === slug);
   if (!item) return {};
+  const path = `/work/${item.slug}/`;
+  const title = `${item.title} — Case Study`;
   return {
-    title: item.title,
+    title,
     description: item.summary,
+    alternates: { canonical: path },
+    openGraph: {
+      type: "article",
+      siteName: site.name,
+      locale: "en_US",
+      url: path,
+      title: `${title} — ${site.name}`,
+      description: item.summary,
+      authors: [site.name],
+      tags: item.tags,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${title} — ${site.name}`,
+      description: item.summary,
+    },
   };
 }
 
@@ -35,6 +55,7 @@ export default async function CasePage({ params }: Props) {
 
   return (
     <>
+      <JsonLd data={caseJsonLd(item)} />
       <section className="pt-16 pb-10 md:pt-24">
         <Container>
           <p className="font-ui text-[15px] font-medium text-subtle">{item.title}</p>
@@ -47,10 +68,21 @@ export default async function CasePage({ params }: Props) {
         </Container>
       </section>
 
+      <section className="pb-4 md:pb-8">
+        <Container>
+          <ProjectCover item={item} priority />
+        </Container>
+      </section>
+
       <section id="headline" className="py-16 md:py-24">
         <Container>
-          <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
-            <h2 className="headline display-md text-white">My role</h2>
+          <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12">
+            <div>
+              <h2 className="headline display-md text-white">My role</h2>
+              <p className="mt-2 font-display text-[18px] font-medium tracking-[-0.4px] text-faint md:text-[20px] lg:text-[22px]">
+                Where did the story begin?
+              </p>
+            </div>
             <div>
               <p className="font-ui text-[16px] font-medium leading-[1.7] text-subtle">
                 {item.challenge}
@@ -72,7 +104,7 @@ export default async function CasePage({ params }: Props) {
           <div className="mt-12 grid gap-12 md:grid-cols-2">
             {item.opportunities.map((entry) => (
               <div key={entry.title}>
-                <h3 className="headline text-[22px] text-white">{entry.title}</h3>
+                <h3 className="subhead text-[22px] text-white">{entry.title}</h3>
                 <p className="mt-3 font-ui text-[15px] font-medium leading-[1.6] text-subtle">
                   {entry.body}
                 </p>
@@ -88,7 +120,7 @@ export default async function CasePage({ params }: Props) {
           <div className="mt-12 grid gap-12 md:grid-cols-3">
             {item.approach.map((entry) => (
               <div key={entry.title}>
-                <h3 className="headline text-[22px] text-white">{entry.title}</h3>
+                <h3 className="subhead text-[22px] text-white">{entry.title}</h3>
                 <p className="mt-3 font-ui text-[15px] font-medium leading-[1.6] text-subtle">
                   {entry.body}
                 </p>
@@ -104,7 +136,7 @@ export default async function CasePage({ params }: Props) {
           <div className="mt-12 grid gap-12 md:grid-cols-3">
             {item.outcomes.map((entry) => (
               <div key={entry.title}>
-                <h3 className="headline text-[22px] text-white">{entry.title}</h3>
+                <h3 className="subhead text-[22px] text-white">{entry.title}</h3>
                 <p className="mt-3 font-ui text-[15px] font-medium leading-[1.6] text-subtle">
                   {entry.body}
                 </p>
@@ -116,10 +148,11 @@ export default async function CasePage({ params }: Props) {
 
       <section id="work" className="py-16 md:py-24">
         <Container>
-          <h2 className="headline display-lg text-white">Glimpse of outputs</h2>
-          <div className="mt-10">
-            <ProjectFrame item={item} />
-          </div>
+          <h2 className="headline display-lg text-white">See the full project</h2>
+          <p className="mt-5 max-w-2xl font-ui text-[16px] font-medium leading-[1.6] text-subtle">
+            Walk through the interactive prototype, or read the story behind the
+            work where it was first shared.
+          </p>
           <div className="mt-8 flex flex-wrap gap-3">
             {item.links.map((link, index) => (
               <Button
@@ -127,6 +160,7 @@ export default async function CasePage({ params }: Props) {
                 href={link.href}
                 external
                 variant={index === 0 && item.prototype ? "solid" : "outline"}
+                className="w-full sm:w-auto"
               >
                 {link.label}
               </Button>

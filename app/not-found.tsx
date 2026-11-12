@@ -1,5 +1,11 @@
+import type { Metadata } from "next";
 import { Button } from "@/components/Button";
 import { Container } from "@/components/Container";
+
+export const metadata: Metadata = {
+  title: "Page not found",
+  robots: { index: false, follow: true },
+};
 
 export default function NotFound() {
   return (
@@ -9,7 +15,7 @@ export default function NotFound() {
         The path you opened doesn’t match a page. Head back to the work.
       </p>
       <div className="mt-8 flex justify-center">
-        <Button href="/" variant="solid">
+        <Button href="/projects" variant="solid">
           View Work
         </Button>
       </div>

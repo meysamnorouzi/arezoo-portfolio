@@ -3,9 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "images": "node scripts/optimize-images.mjs",
+    "predev": "npm run images",
     "dev": "next dev",
+    "prebuild": "npm run images",
     "build": "next build",
-    "start": "next start",
+    "preview": "npx --yes serve@14.2.4 out",
+    "zip": "npm run build && cd out && rm -f ../site.zip && zip -qr ../site.zip . && echo 'site.zip ready \u2014 upload to public_html and extract'",
     "lint": "eslint"
   },
   "dependencies": {
@@ -20,6 +24,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.3.2",
+    "sharp": "^0.35.3",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

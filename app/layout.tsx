@@ -1,7 +1,8 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Manrope } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { JsonLd, personJsonLd } from "@/lib/seo";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -20,18 +21,62 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — Product Designer`,
+    default: site.title,
     template: `%s — ${site.name}`,
   },
-  description:
-    "Product designer in Tehran. I help teams turn user anxiety into clear product decisions through research, structure, and interface.",
+  description: site.description,
+  applicationName: site.name,
+  authors: [{ name: site.name, url: site.url }],
+  creator: site.name,
+  category: "design",
+  keywords: [
+    "Arezoo Jafary",
+    "product designer",
+    "UX designer",
+    "UI designer",
+    "product design portfolio",
+    "user research",
+    "information architecture",
+    "subscription UX",
+    "AI product design",
+    "dark mode design",
+    "Tehran",
+    "Iran",
+  ],
+  alternates: { canonical: "/" },
   openGraph: {
-    title: `${site.name} — Product Designer`,
-    description:
-      "I design products people can trust to use — subscriptions, AI, and wellness experiences.",
-    type: "website",
+    type: "profile",
+    siteName: site.name,
+    locale: "en_US",
+    url: "/",
+    title: site.title,
+    description: site.description,
+    firstName: "Arezoo",
+    lastName: "Jafary",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: site.title,
+    description: site.description,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0d0d0d",
+  colorScheme: "dark",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -47,6 +92,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         />
       </head>
       <body className="flex min-h-full flex-col bg-bg text-fg">
+        <JsonLd data={personJsonLd} />
         <Header />
         <main className="flex-1 pt-[72px]">{children}</main>
         <Footer />

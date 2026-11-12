@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Button } from "@/components/Button";
 import { Container } from "@/components/Container";
-import { site } from "@/lib/site";
+import { nav, site } from "@/lib/site";
 
 export function Footer() {
   return (
@@ -16,10 +16,10 @@ export function Footer() {
             decision people feel ready to make.
           </p>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-            <Button href="/partner" variant="solid">
-              How I Work
+            <Button href="/projects" variant="solid">
+              View Projects
             </Button>
-            <Button href="/playbook">View Playbook</Button>
+            <Button href="/how-i-build">How I Build</Button>
           </div>
         </div>
       </Container>
@@ -29,29 +29,30 @@ export function Footer() {
       <Container className="py-16 md:py-20">
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
           <div>
-            <p className="font-ui text-[13px] font-medium uppercase tracking-[0.08em] text-faint">
+            <p className="font-ui text-[13px] font-medium uppercase tracking-[0.08em] text-white">
               Navigate
             </p>
             <ul className="mt-5 space-y-3">
-              <li><FooterLink href="/resume">Resume</FooterLink></li>
-              <li><FooterLink href="/partner">Your Partner</FooterLink></li>
-              <li><FooterLink href="/playbook">Playbook</FooterLink></li>
-              <li><FooterLink href="/contact">Contact</FooterLink></li>
+              {nav.map((item) => (
+                <li key={item.href}>
+                  <FooterLink href={item.href}>{item.label}</FooterLink>
+                </li>
+              ))}
             </ul>
           </div>
           <div>
-            <p className="font-ui text-[13px] font-medium uppercase tracking-[0.08em] text-faint">
+            <p className="font-ui text-[13px] font-medium uppercase tracking-[0.08em] text-white">
               Work
             </p>
             <ul className="mt-5 space-y-3">
-              <li><FooterLink href="/#cases">Selected work</FooterLink></li>
+              <li><FooterLink href="/projects">All projects</FooterLink></li>
               <li><FooterLink href="/work/coffee-subscription">Coffee Subscription</FooterLink></li>
               <li><FooterLink href="/work/pico-ai">Pico AI</FooterLink></li>
               <li><FooterLink href="/work/yogian">Yogian</FooterLink></li>
             </ul>
           </div>
           <div>
-            <p className="font-ui text-[13px] font-medium uppercase tracking-[0.08em] text-faint">
+            <p className="font-ui text-[13px] font-medium uppercase tracking-[0.08em] text-white">
               Connect
             </p>
             <ul className="mt-5 space-y-3">

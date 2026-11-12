@@ -40,3 +40,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# generated images (npm run images) and the upload bundle
+/public/_img
+/site.zip
+!.env.production.example
